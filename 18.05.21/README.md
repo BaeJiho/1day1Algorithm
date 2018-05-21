@@ -4,11 +4,12 @@
 
 hackerrank Tutorial
 
+# - Num 1
+
 <img width="731" alt="1" src="https://user-images.githubusercontent.com/35207193/40289014-05d0dd82-5cf1-11e8-9075-d632a0fc9888.png">
 
 
 ~~~
-import UIKit
 
 //alice와 bob의 점수를 비교
 //alice - a0, a1, a2
@@ -36,3 +37,37 @@ func solve(a0: Int, a1: Int, a2: Int, b0: Int, b1: Int, b2: Int) -> [Int] {
 }
 solve(a0: 5, a1: 6, a2: 7, b0: 3, b1: 6, b2: 10)
 ~~~
+
+
+# - Num 2
+
+<img width="836" alt="2" src="https://user-images.githubusercontent.com/35207193/40291709-754c3610-5d01-11e8-85d8-fcf2177c9b44.png">
+
+
+~~~
+//n살이면 [n개] example 4살 [3,1,2,3]
+//케이크에 꽂은 촛불을 불어서 꺼야한다.
+//대신 촛불의 height가 제일 높은것들만 끌 수 있다.
+//height길이는 [n개]의 제일 큰 수
+//ex)
+//Input
+//4 [3,1,2,3]
+//Output
+//2
+
+func birthdayCakeCandles(n: Int, ar: [Int]) -> Int {
+  var temp: [Int] = ar
+  var result: Int = 0
+  temp.sort()
+  let lastTemp: Int = temp.last!
+  print(lastTemp)
+  for i in ar {
+    if lastTemp == i {
+      result += 1
+    }
+  }
+  return result
+}
+birthdayCakeCandles(n: 4, ar: [3,1,2,3])
+~~~
+
