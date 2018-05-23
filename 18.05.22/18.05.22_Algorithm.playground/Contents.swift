@@ -15,17 +15,26 @@ func timeConversion(s: String) -> String {
   hr = temp[0]
   min = temp[1]
   second = temp[2]
-  if s.contains("P") && hr != "12" {
-    let hrTime = Int(hr)! + 12
-    hr = String(hrTime)
-    second.removeLast()
-    second.removeLast()
+  
+  if second.contains("P") {
+    if Int(hr)! < 12 {
+      let hrTime = Int(hr)! + 12
+      hr = String(hrTime)
+      second.removeLast()
+      second.removeLast()
+    }
   }
-  if s.contains("A") && hr != "12" {
-    second.removeLast()
-    second.removeLast()
+  
+  if second.contains("A"){
+    if Int(hr)! > 12 {
+      let hrTime = Int(hr)! - 12
+      hr = "0" + String(hrTime)
+      second.removeLast()
+      second.removeLast()
+    }
   }
+
   time = hr + ":" + min + ":" + second
   return time
 }
-timeConversion(s: "07:05:45PM")
+timeConversion(s: "06:40:03AM")
