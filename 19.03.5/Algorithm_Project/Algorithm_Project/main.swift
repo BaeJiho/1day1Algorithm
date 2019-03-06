@@ -203,3 +203,23 @@ default:
  
  상근이가 설탕을 정확하게 N킬로그램 배달해야 할 때, 봉지 몇 개를 가져가면 되는지 그 수를 구하는 프로그램을 작성하시오.
  */
+
+let line1 = readLine() ?? ""
+let input = Int(line1) ?? 0
+
+var result: Int =  input / 5
+
+print(result)//우선 큰 수부터 나눠보자
+
+while result >= 0 {
+    let three = input - (result * 5) // 1
+    if three % 3 == 0 {
+        print(result + (three / 3))
+        break
+    }
+    result -= 1
+    if result == -1 {
+        print(-1)
+    }
+}
+
